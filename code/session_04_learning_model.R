@@ -8,8 +8,8 @@ expo <- function(A , # additive constant
                  N # number of learning trials
                  ){
   
-  # write the exponential law model here using the values above
-
+  RT <- A + B * exp(-alpha*N) # write the exponential law model here using the values above
+  return(RT)
   }
 
 
@@ -27,7 +27,7 @@ power <- function(A, B, beta, N){
 # Use the following values for simulations
 # A = 0, B = 1, alpha/beta = .5
 
-RT_expo <- expo(# enter function arguments here
+RT_expo <- expo(A=0, B=1, ... N=1:100, # enter function arguments here
   )
 
 RT_power <- power(# enter function arguments here
@@ -37,14 +37,14 @@ RT_power <- power(# enter function arguments here
 # Task 3: Plot the data ----------------------------------------------------------------
 
 RT_data <- data.frame(N = 1:100 ,
-                      expo = RT_exp ,
+                      expo = RT_expo ,
                       power = RT_power)
 
 RT_data_long <- RT_data |> pivot_longer(cols=expo:power, names_to = "model", values_to = "RT")
 
 # complete the code block below to show the simulated learning curve for each model
 ?ggplot()
-ggplot(data=RT_data_long, mapping=aes()) +
+ggplot(data=RT_data_long, mapping=aes(color=model)) +
   geom_point() + 
   geom_line()
 
