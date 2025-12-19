@@ -80,7 +80,7 @@ dat1$ev_a2 <- rep(NA, n)
 dat1$ev_ratio <- rep(NA, n)
 dat1$better_ev <- rep(NA, n)
 
-dat1
+head(dat1)
 
 #2.1 for each problem (row) at a time, compute fill the missing columns
 
